@@ -22,6 +22,26 @@ router.post('/login', function(req, res, next) {
    res.json(result)
 })
 
+router.post('/getUser',function(req,res){
+    let result = {
+        status:200,
+        msg:'',
+        data:{
+            name:"",
+            roles:[]
+        }
+    }
+    if(req.body.username == 'admin'){
+        result.data.name = 'admin'
+        result.data.roles = ['admin']
 
+    }else{
+        result.data.name = '小瞅瞅';
+        result.data.roles = ['book']
+
+    }
+    res.json(result)
+
+})
 
 module.exports = router
